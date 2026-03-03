@@ -437,7 +437,25 @@ const ApplicationForm = ({ onSuccess }: { onSuccess: (id: string) => void }) => 
                   <label className="text-xs font-bold text-gray-500 uppercase">Passport Photo *</label>
                   <div className="relative aspect-[3/4] bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center overflow-hidden group">
                     {previews.photo ? (
-                      <img src={previews.photo} className="w-full h-full object-cover" />
+                      <div className="relative w-full h-full group">
+                        <img src={previews.photo} className="w-full h-full object-cover" />
+                        <button 
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPreviews(prev => {
+                              const next = { ...prev };
+                              delete next.photo;
+                              return next;
+                            });
+                            const input = document.getElementById('photo') as HTMLInputElement;
+                            if (input) input.value = '';
+                          }}
+                          className="absolute top-2 right-2 p-1.5 bg-rose-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                        >
+                          <X size={14} />
+                        </button>
+                      </div>
                     ) : (
                       <>
                         <Upload className="text-gray-400 mb-2" />
@@ -452,7 +470,25 @@ const ApplicationForm = ({ onSuccess }: { onSuccess: (id: string) => void }) => 
                   <label className="text-xs font-bold text-gray-500 uppercase">Aadhaar Front *</label>
                   <div className="relative aspect-[3/2] bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center overflow-hidden">
                     {previews.aadhaarFront ? (
-                      <img src={previews.aadhaarFront} className="w-full h-full object-cover" />
+                      <div className="relative w-full h-full group">
+                        <img src={previews.aadhaarFront} className="w-full h-full object-cover" />
+                        <button 
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPreviews(prev => {
+                              const next = { ...prev };
+                              delete next.aadhaarFront;
+                              return next;
+                            });
+                            const input = document.getElementById('aadhaarFront') as HTMLInputElement;
+                            if (input) input.value = '';
+                          }}
+                          className="absolute top-2 right-2 p-1.5 bg-rose-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                        >
+                          <X size={14} />
+                        </button>
+                      </div>
                     ) : (
                       <>
                         <ImageIcon className="text-gray-400 mb-2" />
@@ -467,7 +503,25 @@ const ApplicationForm = ({ onSuccess }: { onSuccess: (id: string) => void }) => 
                   <label className="text-xs font-bold text-gray-500 uppercase">Aadhaar Back *</label>
                   <div className="relative aspect-[3/2] bg-gray-50 rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center overflow-hidden">
                     {previews.aadhaarBack ? (
-                      <img src={previews.aadhaarBack} className="w-full h-full object-cover" />
+                      <div className="relative w-full h-full group">
+                        <img src={previews.aadhaarBack} className="w-full h-full object-cover" />
+                        <button 
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPreviews(prev => {
+                              const next = { ...prev };
+                              delete next.aadhaarBack;
+                              return next;
+                            });
+                            const input = document.getElementById('aadhaarBack') as HTMLInputElement;
+                            if (input) input.value = '';
+                          }}
+                          className="absolute top-2 right-2 p-1.5 bg-rose-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                        >
+                          <X size={14} />
+                        </button>
+                      </div>
                     ) : (
                       <>
                         <ImageIcon className="text-gray-400 mb-2" />
